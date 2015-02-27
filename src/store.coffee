@@ -6,14 +6,22 @@ define([
   dispatcher
   backbone
 )->
-  Store = {items: []}
-  Store.dispatchCallback = (payload) ->
-    switch payload.actionType
-      when "add-item"
-        Store.items.push payload.item
-        console.log Store.items
-      when "delete-last-item"
-        Store.items.pop()
-  Store.dispatchToken = dispatcher.register(Store.dispatchCallback)
+  Item = Backbone.Model.extend({})
+  ItemCollection = Backbone.Collection.extend
+    model: Item
+    #url: "/todo"
+
+    initialize: ->
+      @dispatchToken = dispatcher.register((payload)=>
+        @dispatchCallback(payload)
+      )
+
+    dispatchCallback: (payload)->
+      switch payload.actionType
+        when "add-item"
+          @add {'item': payload}
+
+  Store = new ItemCollection()
+  Store.add({'item':"first"})
   Store
 )

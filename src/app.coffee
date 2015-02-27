@@ -12,6 +12,7 @@ define([
   itemComp
   listComp
 )->
+    store.add('HI')
     console.log underscore
     console.log dispatcher
     console.log store
@@ -20,7 +21,7 @@ define([
       document.getElementById('wow')
     );
     React.render(
-      <listComp />,
+      <listComp store={store} />,
       document.getElementById('list')
     );
 )
