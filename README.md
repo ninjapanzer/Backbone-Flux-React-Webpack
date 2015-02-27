@@ -6,4 +6,6 @@ I have build a sample application that uses backbone models instead of flux stor
 
 This maintains top down control but allows components to rely on EventEmiter through backbone models and Item Collections
 
+Should be deployed to http://westmoreland-open-hack.github.io/Backbone-Flux-React-Webpack/ eventually
+
 Enjoy
