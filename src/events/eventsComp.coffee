@@ -13,10 +13,11 @@ define('EventsComponent',[
       dispatcher.register (payload)=>
         switch payload.actionType
           when "load-events"
-            @setState(payload.events)
-      return {liked: false}
+            @setState({ events: payload.events })
+      return { events: [] }
 
     render: ->
+      debugger
       <div id='something'>
       {
         @state.events.map (event, i)=>
