@@ -4,6 +4,8 @@ define([
   './store'
   './itemComponent'
   './listComponent'
+  './events/eventStore'
+  './events/eventsComp'
 ],
 (
   React
@@ -11,17 +13,20 @@ define([
   store
   itemComp
   listComp
+  eventStore
+  eventComp
 )->
-    store.add('HI')
-    console.log underscore
-    console.log dispatcher
-    console.log store
-    React.render(
-      <itemComp />,
-      document.getElementById('wow')
-    );
-    React.render(
-      <listComp store={store} />,
-      document.getElementById('list')
-    );
+  console.log store
+  React.render(
+    <itemComp />,
+    document.getElementById('wow')
+  );
+  React.render(
+    <listComp store={store} />,
+    document.getElementById('list')
+  );
+  React.render(
+    <eventComp store={eventStore} />,
+    document.getElementById('events')
+  )
 )
