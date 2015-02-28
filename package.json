@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

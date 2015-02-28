@@ -6,10 +6,9 @@ var resolveBowerPath = function(componentPath) {
 };
 module.exports = {
   entry: './src/app.coffee',
-  devtool: "source-map",
   output: {
     path: './build',
-    filename: 'bundle.min.js'
+    filename: 'bundle.js'
   },
   module: {
     noParse: [
@@ -24,7 +23,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
     new webpack.ProvidePlugin({
       underscore: 'underscore',
       jquery: 'jquery',
