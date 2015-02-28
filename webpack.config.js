@@ -6,13 +6,14 @@ var resolveBowerPath = function(componentPath) {
 };
 module.exports = {
   entry: './src/app.coffee',
+  devtool: "source-map",
   output: {
     path: './build',
-    filename: 'bundle.js'
+    filename: 'bundle.min.js'
   },
   module: {
     noParse: [
-      resolveBowerPath('/react/react.min.js'),
+      resolveBowerPath('/react/react.js'),
       resolveBowerPath('/flux/dist/Flux.js'),
       resolveBowerPath('/underscore/underscore-min.js'),
       resolveBowerPath('/jquery/jquery.min.js')
@@ -23,6 +24,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
     new webpack.ProvidePlugin({
       underscore: 'underscore',
       jquery: 'jquery',
@@ -35,7 +37,7 @@ module.exports = {
     alias: {
       'jquery': resolveBowerPath('/jquery/dist/jquery.min.js'),
       'backbone': resolveBowerPath('/backbone/backbone.js'),
-      'react': resolveBowerPath('/react/react.min.js'),
+      'react': resolveBowerPath('/react/react.js'),
       'flux': resolveBowerPath('/flux/dist/Flux.js'),
       'underscore': resolveBowerPath('/underscore/underscore-min.js')
     },
