@@ -19,7 +19,7 @@ define('EventsComponent',[
     render: ->
       <div id='something'>
       {
-        @.props.store.models.map (event, i)=>
+        @state.events.map (event, i)=>
           <eventComp event={event}/>
       }
       </div>
