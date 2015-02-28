@@ -17,7 +17,6 @@ define('EventsComponent',[
       return { events: [] }
 
     render: ->
-      debugger
       <div id='something'>
       {
         @state.events.map (event, i)=>
