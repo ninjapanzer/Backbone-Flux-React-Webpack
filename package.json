@@ -6,22 +6,40 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "backbone": "^1.1.2",
     "coffee-jsx-loader": "^0.1.0",
     "coffee-loader": "^0.7.2",
     "coffee-react": "^2.1.2",
+    "coffee-react-transform": "^2.4.0",
     "coffee-script": "^1.9.1",
     "jade": "^1.9.2",
     "jade-loader": "^0.7.1",
+    "jest-cli": "^0.4.0",
+    "deasync": "0.0.8",
+    "memory-fs": "^0.2.0",
     "jshint": "^2.6.0",
     "jshint-loader": "^0.8.3",
     "jsx-loader": "^0.12.2",
+    "react": "*",
+    "react-tools": "*",
     "sass-loader": "^0.4.0",
     "webpack": "^1.6.0",
     "webpack-dev-server": "^1.7.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "preprocessor.js",
+    "testFileExtensions": [
+      "coffee",
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "./node_modules/react",
+      "./node_modules/backbone"
+    ]
   }
 }
